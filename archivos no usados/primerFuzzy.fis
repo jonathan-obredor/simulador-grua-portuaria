@@ -1,0 +1,30 @@
+[System]
+Name='primerFuzzy'
+Type='mamdani'
+Version=2.0
+NumInputs=1
+NumOutputs=1
+NumRules=0
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='angulo'
+Range=[-90 90]
+NumMFs=3
+MF1='negativo':'trimf',[-200 -40 0]
+MF2='cero':'trimf',[-40 0 40]
+MF3='positivo':'trimf',[0 40 200]
+
+[Output1]
+Name='torque'
+Range=[-1 1]
+NumMFs=3
+MF1='negativo':'gaussmf',[0.4247 -1]
+MF2='cero':'gaussmf',[0.2 0]
+MF3='positivo':'gaussmf',[0.4247 1]
+
+[Rules]
